@@ -1,32 +1,35 @@
 <template>
-  <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <router-view />
+  <div id="app" class="flex bg-app-black px-70">
+    <div class="flex w-full py-32">
+      <div class="w-3/4 bg-red-200 pr-2">
+        <router-view />
+      </div>
+      <div class="w-1/4 pl-2">
+        <Menu />
+      </div>
+    </div>
+
+    <ColorPallete />
   </div>
 </template>
+<script>
+import Menu from '@/components/Menu';
+import ColorPallete from '@/components/ColorPallete';
 
+export default {
+  name: 'App',
+  components: {
+    Menu,
+    ColorPallete,
+  },
+};
+</script>
 <style>
-#app {
-  /* font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50; */
-}
-/* 
-#nav {
-  padding: 30px;
-} */
-
-/* #nav a {
-  font-weight: bold;
-  color: #2c3e50;
-} */
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+a {
+  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
 }
 </style>
