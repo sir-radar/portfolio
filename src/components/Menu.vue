@@ -1,17 +1,11 @@
 <template>
-  <div class="sticky top-16 bg-app-black rounded-2 w-full">
+  <div class="sticky top-16 rounded-2 w-full z-10">
     <header
-      class="shadow-app rounded-2 px-6 py-12 flex flex-col items-center text-center mb-8"
+      class="shadow-app bg-app-black rounded-2 px-6 py-12 flex flex-col items-center text-center mb-8"
     >
-      <div
-        class="profile-image shadow-app-inner relative w-11 h-11 p-2 rounded-50 mb-6"
-      >
+      <div class="profile-image shadow-app-inner relative w-11 h-11 p-2 rounded-50 mb-6">
         <div class="shadow-app rounded-50 p-7">
-          <img
-            class="rounded-50 w-full"
-            src="../assets/images/sam.jpeg"
-            alt="profile-image"
-          />
+          <img class="rounded-50 w-full" src="../assets/images/sam.jpeg" alt="profile-image" />
         </div>
       </div>
       <div class="mb-8 w-full">
@@ -21,14 +15,9 @@
       <nav class="w-full">
         <ul class="w-full">
           <li class="shadow-app rounded-2 mb-4">
-            <router-link
-              class="hover:shadow-app-inner block py-2 px-6 rounded-2"
-              to="/"
-            >
+            <router-link class="hover:shadow-app-inner block py-2 px-6 rounded-2" to="/">
               <div class="flex justify-between">
-                <span class="font-semibold text-sm text-muted uppercase"
-                  >Home</span
-                >
+                <span class="font-semibold text-sm text-muted uppercase">Home</span>
                 <div class="block w-5 h-5 text-icon">
                   <HomeIcon />
                 </div>
@@ -36,14 +25,9 @@
             </router-link>
           </li>
           <li class="shadow-app rounded-2 mb-4">
-            <router-link
-              class="hover:shadow-app-inner block py-2 px-6 rounded-2"
-              to="/about"
-            >
+            <router-link class="hover:shadow-app-inner block py-2 px-6 rounded-2" to="/about">
               <div class="flex justify-between">
-                <span class="font-semibold text-sm text-muted uppercase"
-                  >About</span
-                >
+                <span class="font-semibold text-sm text-muted uppercase">About</span>
                 <div class="block w-5 h-5 text-icon">
                   <Profile />
                 </div>
@@ -51,14 +35,9 @@
             </router-link>
           </li>
           <li class="shadow-app rounded-2 mb-4">
-            <router-link
-              class="hover:shadow-app-inner block py-2 px-6 rounded-2"
-              to="/portfolio"
-            >
+            <router-link class="hover:shadow-app-inner block py-2 px-6 rounded-2" to="/portfolio">
               <div class="flex justify-between">
-                <span class="font-semibold text-sm text-muted uppercase"
-                  >Portfolio</span
-                >
+                <span class="font-semibold text-sm text-muted uppercase">Portfolio</span>
                 <div class="block w-5 h-5 text-icon">
                   <Portfolio />
                 </div>
@@ -66,14 +45,9 @@
             </router-link>
           </li>
           <li class="shadow-app rounded-2 mb-4">
-            <router-link
-              class="hover:shadow-app-inner block py-2 px-6 rounded-2"
-              to="/contact"
-            >
+            <router-link class="hover:shadow-app-inner block py-2 px-6 rounded-2" to="/contact">
               <div class="flex justify-between">
-                <span class="font-semibold text-sm text-muted uppercase"
-                  >Contact</span
-                >
+                <span class="font-semibold text-sm text-muted uppercase">Contact</span>
                 <div class="block w-5 h-5 text-icon">
                   <Mail />
                 </div>
@@ -122,12 +96,12 @@
 </template>
 
 <script>
-import HomeIcon from '@/assets/images/svg/home.svg';
-import Profile from '@/assets/images/svg/profile.svg';
-import Portfolio from '@/assets/images/svg/portfolio.svg';
-import Mail from '@/assets/images/svg/mail.svg';
+import HomeIcon from "@/assets/images/svg/home.svg";
+import Profile from "@/assets/images/svg/profile.svg";
+import Portfolio from "@/assets/images/svg/portfolio.svg";
+import Mail from "@/assets/images/svg/mail.svg";
 export default {
-  name: 'Menu',
+  name: "Menu",
   components: {
     HomeIcon,
     Profile,
