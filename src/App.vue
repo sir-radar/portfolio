@@ -1,28 +1,41 @@
 <template>
-  <div id="app" class="flex items-start bg-app-black px-70">
-    <div class="flex relative items-start w-full py-32 z-10">
-      <Triangle class="triangle img" style="transform: translate3d(7.44px, 9.36px, 0px);" />
+  <div id="app" class="bg-app-black px-3 sm:px-70 md:px-70">
+    <div class="flex flex-col-reverse md:flex-row relative items-start w-full py-32 z-10">
+      <Triangle
+        class="hidden md:block triangle img"
+        style="transform: translate3d(7.44px, 9.36px, 0px);"
+      />
 
-      <SquareRL style="transform: translate3d(45.64px, 4.76px, 0px);" class="square-rl img" />
-      <img src="circle.svg" style="transform: translate3d(-6.5px, 9.1px, 0px);" class="circle img" />
+      <SquareRL
+        style="transform: translate3d(45.64px, 4.76px, 0px);"
+        class="md:block hidden square-rl img"
+      />
+      <img
+        src="circle.svg"
+        style="transform: translate3d(-6.5px, 9.1px, 0px);"
+        class="md:block hidden circle img"
+      />
       <img
         style="transform: translate3d(-6.78px, -25.02px, 0px);"
-        class="dashed-circle img"
+        class="md:block hidden dashed-circle img"
         src="dashed-circle.svg"
       />
 
       <img
         src="square-poly.svg"
         style="transform: translate3d(26.18px, 24.36px, 0px);"
-        class="square-poly img"
+        class="md:block hidden square-poly img"
       />
 
-      <Square style="transform: translate3d(-4px, -52.5px, 0px);" class="square img" />
+      <Square
+        style="transform: translate3d(-4px, -52.5px, 0px);"
+        class="md:block hidden square img"
+      />
 
-      <div class="w-3/4 pr-2 z-10">
+      <div class="w-full md:w-3/4 md:pr-2 z-10">
         <router-view class="bg-app-black rounded-2 shadow-app p-12" />
       </div>
-      <div class="w-1/4 pl-2 z-10">
+      <div class="mb-8 md:mb-0 w-full md:w-1/4 md:pl-2 z-10">
         <Menu />
       </div>
     </div>
