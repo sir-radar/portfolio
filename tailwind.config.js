@@ -10,6 +10,7 @@ module.exports = {
         '15': '15px',
         '33': '33px',
         '70': '70px',
+        '21': '5.6rem',
         '278': '278px',
       },
       height: {
@@ -19,6 +20,10 @@ module.exports = {
       width: {
         '11': '11.25rem',
         '50': '50px',
+        '60': '3.75rem',
+      },
+      fontSize: {
+        title: '2.5rem',
       },
     },
     inset: {

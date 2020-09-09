@@ -3,7 +3,7 @@
     <div class="flex flex-col-reverse md:flex-row relative items-start w-full py-32 z-10">
       <Triangle
         class="hidden md:block triangle img"
-        style="transform: translate3d(7.44px, 9.36px, 0px);"
+        style="transform: translate3d(var(--x), var(--y), 0px);"
       />
 
       <SquareRL
@@ -59,10 +59,18 @@ export default {
     Square,
     Triangle,
   },
+  mounted() {
+    // const pos = document.documentElement;
+    // pos.addEventListener("mousemove", (e) => {
+    //   pos.style.setProperty("--x", -e.clientX + "px");
+    //   pos.style.setProperty("--y", -e.clientY + "px");
+    // });
+  },
 };
 </script>
 <style>
-a {
+a,
+a .inner {
   transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;

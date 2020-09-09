@@ -1,5 +1,9 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCog, faSun } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCog,
+  faSun,
+  faChevronCircleDown,
+} from '@fortawesome/free-solid-svg-icons';
 import {
   faTwitter,
   faFacebookF,
@@ -8,6 +12,13 @@ import {
 
 import FontAwesomeIcon from '@/lib/FontAwesomeIcon.vue';
 
-library.add(faCog, faSun, faTwitter, faGoogle, faFacebookF);
+library.add(
+  faCog,
+  faSun,
+  faTwitter,
+  faGoogle,
+  faFacebookF,
+  faChevronCircleDown
+);
 
 export { FontAwesomeIcon };
