@@ -35,8 +35,8 @@
       </li>
     </ul>
     <Divider class="mb-12 w-60" />
-    <div class="flex justify-between w-full text-muted">
-      <div class="px-4">
+    <div class="flex flex-col md:flex-row justify-between w-full text-muted">
+      <div class="px-4 mb-3 md:mb-0">
         <a class="flex items-center mr-2 cursor-pointer p-0">
           <div class="shadow-app rounded-2 mr-4">
             <div
