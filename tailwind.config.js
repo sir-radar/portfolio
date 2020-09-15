@@ -14,6 +14,7 @@ module.exports = {
         '278': '278px',
       },
       height: {
+        '7': '0.375rem',
         '11': '11.25rem',
         '50': '50px',
       },
@@ -28,6 +29,8 @@ module.exports = {
     },
     inset: {
       '0': '0',
+      n15: '-0.9375rem',
+      '15': '0.9375rem',
       '50': '50px',
       '30': '30px',
       '20': '20px',
@@ -44,6 +47,7 @@ module.exports = {
     borderRadius: {
       '1': '1rem',
       '2': '2rem',
+      '3': '3rem',
       '4': '4rem',
       '50': '50%',
     },

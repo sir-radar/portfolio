@@ -1,5 +1,5 @@
 <template>
-  <hr class="divider divider-center relative w-10 h-2 rounded-1 shadow-app-inner border-0" />
+  <hr class="divider divider-center relative w-60 h-2 rounded-1 shadow-app-inner border-0" />
 </template>
 
 <script>
@@ -17,9 +17,9 @@ hr.divider:after {
 }
 
 hr.divider-center:after {
-  left: 50%;
+  left: 0.5rem;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
 }
 </style>>
 
