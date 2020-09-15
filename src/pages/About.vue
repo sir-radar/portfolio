@@ -230,18 +230,23 @@
         </div>
       </div>
     </section>
+    <div class="flex flex-col items-center justify-center">
+      <BottomLinks />
+    </div>
   </div>
 </template>
 <script>
 // import Divider from "@/components/Divider";
 import BigDivider from '@/components/BigDivider';
 import Case from '@/assets/images/svg/case.svg';
+import BottomLinks from '@/components/BottomLinks';
 export default {
   name: 'aboutPage',
   components: {
     // Divider,
     BigDivider,
     Case,
+    BottomLinks,
   },
 };
 </script>

@@ -49,8 +49,3 @@ export default {
   },
 };
 </script>
-<style>
-.link:hover div {
-  box-shadow: 'inset 3px 3px 3px #202125, inset -3px -3px 3px #353535';
-}
-</style>
