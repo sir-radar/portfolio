@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         'app-black': '#2c2d30',
+        'line-color': 'rgba(255,255,255,.07)',
       },
       spacing: {
         '7': '0.375rem',
@@ -17,10 +18,12 @@ module.exports = {
         '7': '0.375rem',
         '11': '11.25rem',
         '50': '50px',
+        '53': '3.3rem',
       },
       width: {
         '11': '11.25rem',
         '50': '50px',
+        '53': '3.3rem',
         '60': '3.75rem',
       },
       fontSize: {
