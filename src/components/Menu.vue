@@ -4,7 +4,7 @@
       class="shadow-app bg-app-black rounded-2 px-6 py-12 flex flex-col items-center text-center mb-8"
     >
       <div class="profile-image shadow-app-inner relative w-11 h-11 p-2 rounded-50 mb-6">
-        <div class="shadow-app rounded-50 p-7">
+        <div class="shadow-app w-full h-full rounded-50 p-7">
           <img class="rounded-50 w-full h-full" src="../assets/images/sam.jpeg" alt="profile-image" />
         </div>
       </div>
