@@ -30,6 +30,7 @@ module.exports = {
       },
       fontSize: {
         title: '2.5rem',
+        submit: '.9375rem'
       },
     },
     inset: {

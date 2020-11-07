@@ -1,9 +1,10 @@
 <template>
   <div id="app" class="bg-app-black px-3 sm:px-70 md:px-70">
     <div class="flex flex-col-reverse md:flex-row relative items-start w-full py-32 z-10">
+      <!-- <div class="parallax position-absolute d-none d-lg-block" data-relative-input="true" style="transform: translate3d(0px, 0px, 0px); transform-style: preserve-3d; backface-visibility: hidden;"> -->
       <Triangle
         class="hidden md:block triangle img"
-        style="transform: translate3d(var(--x), var(--y), 0px);"
+        style="transform: translate3d(10px, 4px, 0px);"
       />
 
       <SquareRL
@@ -31,6 +32,7 @@
         style="transform: translate3d(-4px, -52.5px, 0px);"
         class="md:block hidden square img"
       />
+      <!-- </div> -->
 
       <div class="w-full md:w-3/4 md:pr-2 z-10">
         <router-view class="bg-app-black rounded-2 shadow-app p-12" />
@@ -58,14 +60,7 @@ export default {
     SquareRL,
     Square,
     Triangle,
-  },
-  mounted() {
-    // const pos = document.documentElement;
-    // pos.addEventListener("mousemove", (e) => {
-    //   pos.style.setProperty("--x", -e.clientX + "px");
-    //   pos.style.setProperty("--y", -e.clientY + "px");
-    // });
-  },
+  }
 };
 </script>
 <style>
@@ -77,12 +72,6 @@ a .inner {
   -ms-transition: all 0.3s ease 0s;
   -o-transition: all 0.3s ease 0s;
 }
-
-/* .art {
-  transform: translate3d(0px, 0px, 0px);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-} */
 
 .img {
   transform-style: preserve-3d;
