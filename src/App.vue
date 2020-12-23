@@ -40,10 +40,18 @@
       />
 
       <div class="z-10 w-full md:w-3/4 md:pr-2">
+        <!-- <router-view
+          class="p-12 bg-app-black rounded-2 shadow-app"
+          :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"
+        /> -->
         <router-view
           class="p-12 bg-app-black rounded-2 shadow-app"
           :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"
-        />
+          v-slot="{ Component }">
+          <transition name="fade" mode="out-in">
+            <component :is="Component" />
+          </transition>
+        </router-view>
       </div>
       <div class="z-10 w-full mb-8 md:mb-0 md:w-1/4 md:pl-2">
         <Menu />
@@ -150,5 +158,21 @@ a .inner {
 #SVGID_19_,
 #SVGID_21_ {
   overflow: visible;
+}
+.fade-enter-from,
+.fade-leave-to{
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-enter-active,
+.fade-leave-active{
+  transition: all .5s ease;
+}
+
+.fade-enter-to,
+.fade-leave-from{
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

@@ -30,6 +30,11 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  // eslint-disable-next-line no-unused-vars
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 }
+  },
 });
 
 export default router;
