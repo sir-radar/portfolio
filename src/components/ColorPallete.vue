@@ -38,11 +38,11 @@
           </span>
         </a>
       </div>
-      <div class="cursor-pointer bg-app-black shadow-app rounded-1" :class="{'shadow-app-light bg-app-light': state.theme == 'light' }">
+      <div @click="toggleTheme" class="cursor-pointer bg-app-black shadow-app rounded-1" :class="{'shadow-app-light bg-app-light': state.theme == 'light' }">
         <a class="flex items-center justify-center hover:shadow-app-inner rounded-1 h-50 w-50" :class="{'hover:shadow-app-light-inner': state.theme == 'light' }">
           <span class="block w-5 h-5 text-white" :class="{'text-dark': state.theme === 'light'}">
-            <fa @click="setTheme('light')" v-if="state.theme === 'dark'" icon="sun" />
-            <fa @click="setTheme('dark')" v-if="state.theme === 'light'" icon="moon"/>
+            <fa v-if="state.theme === 'dark'" icon="sun" />
+            <fa v-if="state.theme === 'light'" icon="moon"/>
           </span>
         </a>
       </div>
@@ -68,8 +68,15 @@ export default {
     function toggleColors() {
       show.value = !show.value;
     }
+    function toggleTheme(){
+      if(state.theme === 'dark'){
+        setTheme('light')
+      }else{
+        setTheme('dark')
+      }
+    }
 
-    return { state, show, hideColors, toggleColors, setPriColor, setTheme }
+    return { state, show, hideColors, toggleColors, setPriColor, toggleTheme }
   }
 };
 </script>
