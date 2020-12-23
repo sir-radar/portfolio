@@ -38,7 +38,7 @@
                   >Birth</span>
                   <span
                     class="py-2 text-center text-muted inline-block w-full md:w-9/12"
-                  >March 26, 1993</span>
+                  >March 26</span>
                 </li>
                 <li class="w-full">
                   <span
