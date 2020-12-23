@@ -1,40 +1,43 @@
 <template>
   <Divider class="mb-12 w-60" />
-  <div class="flex flex-col md:flex-row justify-between w-full text-muted">
+  <div class="flex flex-col justify-between w-full md:flex-row text-muted">
     <div class="px-4 mb-3 md:mb-0">
-      <a class="flex items-center mr-2 cursor-pointer p-0">
-        <div class="shadow-app rounded-2 mr-4">
+      <a class="flex items-center p-0 mr-2 cursor-pointer">
+        <div class="mr-4 shadow-app rounded-2" :class="{'shadow-app-light': state.theme === 'light'}">
           <div
-            class="flex inner justify-center rounded-50 items-center hover:shadow-app-inner w-12 h-12"
+            class="flex items-center justify-center w-12 h-12 inner rounded-50 hover:shadow-app-inner"
+            :class="{'hover:shadow-app-light-inner': state.theme === 'light'}"
           >
             <span id="icon" class="block w-5">
-              <Download style="stroke: #fff; fill: #fff;" />
+              <Download style="stroke: var(--priColor); fill: var(--priColor)" />
             </span>
           </div>
         </div>
 
-        <div class="uppercase font-semibold text-sm">Download my cv</div>
+        <div class="text-sm font-semibold uppercase">Download my cv</div>
       </a>
     </div>
     <div class="px-4">
-      <a class="flex items-center mr-2 cursor-pointer p-0">
-        <div class="shadow-app rounded-2 mr-4">
+      <a class="flex items-center p-0 mr-2 cursor-pointer">
+        <div class="mr-4 shadow-app rounded-2" :class="{'shadow-app-light': state.theme === 'light'}">
           <div
-            class="flex inner justify-center rounded-50 items-center hover:shadow-app-inner w-12 h-12"
+            class="flex items-center justify-center w-12 h-12 inner rounded-50 hover:shadow-app-inner"
+            :class="{'hover:shadow-app-light-inner': state.theme === 'light'}"
           >
             <span id="icon" class="block w-5">
-              <Print style="stroke: #fff; fill: #fff;" />
+              <Print style="stroke: var(--priColor); fill: var(--priColor);" />
             </span>
           </div>
         </div>
 
-        <div class="uppercase font-semibold text-sm">Print my resume</div>
+        <div class="text-sm font-semibold uppercase">Print my resume</div>
       </a>
     </div>
   </div>
 </template>
 
 <script>
+import { useState } from '../store';
 import Divider from '@/components/Divider';
 import Download from '@/assets/images/svg/download.svg';
 import Print from '@/assets/images/svg/print.svg';
@@ -45,6 +48,10 @@ export default {
     Download,
     Print,
   },
+  setup(){
+    const { state } = useState();
+    return { state }
+  }
 };
 </script>
 

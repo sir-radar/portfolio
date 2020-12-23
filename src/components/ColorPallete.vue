@@ -1,45 +1,48 @@
 <template>
-  <div id="color-pallete" class="fixed top-50 z-20" :class="{ 'left-30': show, hide: !show }">
+  <div id="color-pallete" class="fixed z-20 top-50" :class="{ 'left-30': show, hide: !show }">
     <div class="flex items-start">
-      <div class="w-278 shadow-app p-33 bg-app-black rounded-2 mr-5">
-        <h6 class="text-base font-semibold text-white mb-15">Theme Colors</h6>
+      <div class="mr-5 w-278 shadow-app p-33 bg-app-black rounded-2" :class="{'bg-app-light shadow-app-light': state.theme == 'light' }">
+        <h6 class="text-base font-semibold text-white mb-15" :class="{'text-dark': state.theme == 'light' }">Theme Colors</h6>
         <Divider />
-        <h6 class="text-base font-normal text-white mb-15 mt-5">Pick a color</h6>
+        <h6 class="mt-5 text-base font-normal text-white mb-15" :class="{'text-dark': state.theme == 'light' }">Pick a color</h6>
         <ul class="flex flex-wrap mb-5">
           <li
-            class="rounded-4 shadow-app-sm inline-block mr-1 mb-2 cursor-pointer"
-            v-for="color in colors"
+            class="inline-block mb-2 mr-1 cursor-pointer rounded-4 shadow-app-sm"
+            :class="{'shadow-app-light-sm': state.theme == 'light' }"
+            v-for="color in state.colors"
             :key="color"
           >
             <a
-              class="hover:shadow-app-sm-inner rounded-4 flex justify-center items-center text-center h-4 w-4"
+              class="flex items-center justify-center w-4 h-4 text-center hover:shadow-app-sm-inner rounded-4"
+              :class="{'hover:shadow-app-light-sm-inner': state.theme == 'light' }"
+              @click="setPriColor(color)"
             >
-              <span class="h-2 w-2 rounded-4 inline-block" :style="{ backgroundColor: color }"></span>
+              <span class="inline-block w-2 h-2 rounded-4" :style="{ backgroundColor: color }"></span>
             </a>
           </li>
         </ul>
         <div class="flex">
-          <div class="shadow-app rounded-2 mr-2 cursor-pointer">
-            <a class="hover:shadow-app-inner block text-muted px-6 py-1 rounded-2">Reset</a>
+          <div class="mr-2 cursor-pointer shadow-app rounded-2" :class="{'shadow-app-light': state.theme == 'light'}">
+            <a class="block px-6 py-1 hover:shadow-app-inner text-muted rounded-2" :class="{'hover:shadow-app-light-inner text-dark': state.theme == 'light' }">Reset</a>
           </div>
-          <div @click="hideColors()" class="shadow-app rounded-2 cursor-pointer">
-            <a class="hover:shadow-app-inner block text-muted px-6 py-1 rounded-2">Close</a>
+          <div @click="hideColors" class="cursor-pointer shadow-app rounded-2" :class="{'shadow-app-light': state.theme == 'light'}">
+            <a class="block px-6 py-1 hover:shadow-app-inner text-muted rounded-2" :class="{'hover:shadow-app-light-inner text-dark': state.theme == 'light' }">Close</a>
           </div>
         </div>
       </div>
 
-      <div @click="toggleColors()" class="bg-app-black shadow-app cursor-pointer rounded-1 mr-3">
-        <a class="hover:shadow-app-inner flex justify-center items-center rounded-1 h-50 w-50">
-          <span class="settings block text-white w-5 h-5">
+      <div @click="toggleColors" class="mr-3 cursor-pointer bg-app-black shadow-app rounded-1" :class="{'shadow-app-light bg-app-light': state.theme == 'light' }">
+        <a class="flex items-center justify-center hover:shadow-app-inner rounded-1 h-50 w-50" :class="{'hover:shadow-app-light-inner': state.theme == 'light' }">
+          <span class="block w-5 h-5 text-white settings" :class="{'text-dark': state.theme === 'light'}">
             <fa icon="cog" />
           </span>
         </a>
       </div>
-      <div class="bg-app-black shadow-app cursor-pointer rounded-1">
-        <a class="hover:shadow-app-inner flex justify-center items-center rounded-1 h-50 w-50">
-          <span class="block text-white w-5 h-5">
-            <fa icon="sun" />
-            <!-- <fa icon="moon"/> -->
+      <div class="cursor-pointer bg-app-black shadow-app rounded-1" :class="{'shadow-app-light bg-app-light': state.theme == 'light' }">
+        <a class="flex items-center justify-center hover:shadow-app-inner rounded-1 h-50 w-50" :class="{'hover:shadow-app-light-inner': state.theme == 'light' }">
+          <span class="block w-5 h-5 text-white" :class="{'text-dark': state.theme === 'light'}">
+            <fa @click="setTheme('light')" v-if="state.theme === 'dark'" icon="sun" />
+            <fa @click="setTheme('dark')" v-if="state.theme === 'light'" icon="moon"/>
           </span>
         </a>
       </div>
@@ -48,47 +51,26 @@
 </template>
 
 <script>
+import {ref} from 'vue';
+import { useState } from '../store';
 import Divider from "@/components/Divider";
 export default {
   name: "ColorPallete",
   components: {
     Divider,
   },
-  data() {
-    return {
-      colors: [
-        "#F56C6D",
-        "#558D6A",
-        "#00B4D9",
-        "#15C8C8",
-        "#7369B9",
-        "#D0A068",
-        "#EAD22D",
-        "#EB874F",
-        "#FDC62A",
-        "#EF3E96",
-        "#009473",
-        "#55606E",
-        "#FE8178",
-        "#734854",
-        "#113F59",
-        "#FFD42C",
-        "#A0CE4E",
-        "#2897AB",
-        "#4765A0",
-        "#E53F50",
-      ],
-      show: false,
-    };
-  },
-  methods: {
-    hideColors() {
-      this.show = false;
-    },
-    toggleColors() {
-      this.show = !this.show;
-    },
-  },
+  setup(){
+    const { state, setPriColor, setTheme } = useState();
+    let show = ref(false)
+    function hideColors() {
+      show.value = false;
+    }
+    function toggleColors() {
+      show.value = !show.value;
+    }
+
+    return { state, show, hideColors, toggleColors, setPriColor, setTheme }
+  }
 };
 </script>
 

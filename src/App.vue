@@ -1,6 +1,9 @@
 <template>
-  <div id="app" class="bg-app-black px-3 sm:px-70 md:px-70">
-    <div class="flex flex-col-reverse md:flex-row relative items-start w-full py-32 z-10">
+  <div id="app"
+    class="px-3 bg-app-black sm:px-70 md:px-70"
+    :class="{'bg-app-light': state.theme === 'light'}"
+    >
+    <div class="relative z-10 flex flex-col-reverse items-start w-full py-32 md:flex-row">
       <Triangle
         class="hidden md:block triangle img"
         style="transform: translate3d(10px, 4px, 0px);"
@@ -8,34 +11,40 @@
 
       <SquareRL
         style="transform: translate3d(45.64px, 4.76px, 0px);"
-        class="md:block hidden square-rl img"
+        class="hidden md:block square-rl img"
       />
       <img
         src="circle.svg"
         style="transform: translate3d(-6.5px, 9.1px, 0px);"
-        class="md:block hidden circle img"
+        class="hidden md:block circle img"
+        :class="{'shadow-app-light-inner': state.theme === 'light'}"
       />
       <img
         style="transform: translate3d(-6.78px, -25.02px, 0px);"
-        class="md:block hidden dashed-circle img"
+        class="hidden md:block dashed-circle img"
+        :class="{'shadow-app-light-inner': state.theme === 'light'}"
         src="dashed-circle.svg"
       />
 
       <img
         src="square-poly.svg"
         style="transform: translate3d(26.18px, 24.36px, 0px);"
-        class="md:block hidden square-poly img"
+        class="hidden md:block square-poly img"
       />
 
       <Square
         style="transform: translate3d(-4px, -52.5px, 0px);"
-        class="md:block hidden square img"
+        class="hidden md:block square img"
+        :class="{'shadow-app-light': state.theme === 'light'}"
       />
 
-      <div class="w-full md:w-3/4 md:pr-2 z-10">
-        <router-view class="bg-app-black rounded-2 shadow-app p-12" />
+      <div class="z-10 w-full md:w-3/4 md:pr-2">
+        <router-view
+          class="p-12 bg-app-black rounded-2 shadow-app"
+          :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"
+        />
       </div>
-      <div class="mb-8 md:mb-0 w-full md:w-1/4 md:pl-2 z-10">
+      <div class="z-10 w-full mb-8 md:mb-0 md:w-1/4 md:pl-2">
         <Menu />
       </div>
     </div>
@@ -44,6 +53,7 @@
   </div>
 </template>
 <script>
+import { useState } from './store';
 import Menu from "@/components/Menu";
 import ColorPallete from "@/components/ColorPallete";
 import SquareRL from "@/assets/images/svg/square-rl.svg";
@@ -58,10 +68,19 @@ export default {
     SquareRL,
     Square,
     Triangle,
+  },
+  setup() {
+    const { state } = useState();
+
+    return {state}
   }
 };
 </script>
 <style>
+:root {
+  --priColor: '';
+}
+
 a,
 a .inner {
   transition: all 0.3s ease 0s;

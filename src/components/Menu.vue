@@ -1,55 +1,31 @@
 <template>
-  <div class="sticky top-16 rounded-2 w-full z-10">
+  <div class="sticky z-10 w-full top-16 rounded-2">
     <header
-      class="shadow-app bg-app-black rounded-2 px-6 py-12 flex flex-col items-center text-center mb-8"
+      class="flex flex-col items-center px-6 py-12 mb-8 text-center shadow-app bg-app-black rounded-2"
+      :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"
     >
-      <div class="profile-image shadow-app-inner relative w-11 h-11 p-2 rounded-50 mb-6">
-        <div class="shadow-app w-full h-full rounded-50 p-7">
-          <img class="rounded-50 w-full h-full" src="../assets/images/sam.jpeg" alt="profile-image" />
+      <div class="relative p-2 mb-6 profile-image shadow-app-inner w-11 h-11 rounded-50" :class="{'shadow-app-light-inner': state.theme === 'light'}">
+        <div class="w-full h-full shadow-app rounded-50 p-7" :class="{'shadow-app-light': state.theme === 'light'}">
+          <img class="w-full h-full rounded-50" src="../assets/images/sam.jpeg" alt="profile-image" />
         </div>
       </div>
-      <div class="mb-8 w-full">
-        <h3 class="font-semibold text-2xl text-white">Samson Nwokike</h3>
+      <div class="w-full mb-8">
+        <h3 class="text-2xl font-semibold text-white" :class="{'text-dark': state.theme === 'light'}">Samson Nwokike</h3>
         <h6 class="text-base text-muted">Full Stack Developer</h6>
       </div>
       <nav class="w-full">
         <ul class="w-full">
-          <li class="shadow-app rounded-2 mb-4">
-            <router-link class="hover:shadow-app-inner block py-2 px-6 rounded-2" to="/">
-              <div class="flex justify-between">
-                <span class="font-semibold text-sm text-muted uppercase">Home</span>
+          <li v-for="menu in menuList" :key="menu.label" class="mb-4 shadow-app rounded-2" :class="{'shadow-app-light': state.theme === 'light'}">
+            <router-link
+              class="block px-6 py-2 hover:shadow-app-inner rounded-2"
+              :class="{'hover:shadow-app-light-inner': state.theme === 'light'}"
+              :to="menu.link"
+              :active-class="getActiveClass()"
+              >
+              <div class="flex justify-between text-muted">
+                <span class="text-sm font-semibold uppercase" :class="{'text-dark':  state.theme === 'light'}">{{ menu.label }}</span>
                 <div class="block w-5 text-icon">
-                  <HomeIcon style="stroke: #fff; fill: #fff;" />
-                </div>
-              </div>
-            </router-link>
-          </li>
-          <li class="shadow-app rounded-2 mb-4">
-            <router-link class="hover:shadow-app-inner block py-2 px-6 rounded-2" to="/about">
-              <div class="flex justify-between">
-                <span class="font-semibold text-sm text-muted uppercase">About</span>
-                <div class="block w-5 text-icon">
-                  <Profile style="stroke: #fff; fill: #fff;" />
-                </div>
-              </div>
-            </router-link>
-          </li>
-          <li class="shadow-app rounded-2 mb-4">
-            <router-link class="hover:shadow-app-inner block py-2 px-6 rounded-2" to="/portfolio">
-              <div class="flex justify-between">
-                <span class="font-semibold text-sm text-muted uppercase">Portfolio</span>
-                <div class="block w-5 text-icon">
-                  <Portfolio style="stroke: #fff; fill: #fff;" />
-                </div>
-              </div>
-            </router-link>
-          </li>
-          <li class="shadow-app rounded-2 mb-4">
-            <router-link class="hover:shadow-app-inner block py-2 px-6 rounded-2" to="/contact">
-              <div class="flex justify-between">
-                <span class="font-semibold text-sm text-muted uppercase">Contact</span>
-                <div class="block w-5 text-icon">
-                  <Mail style="stroke: #fff; fill: #fff;" />
+                  <component :is="menu.component" style="stroke: var(--priColor); fill: var(--priColor);" />
                 </div>
               </div>
             </router-link>
@@ -60,33 +36,14 @@
     <footer class="text-center text-muted">
       <p class="mb-2">© {{ date }} Samson Nwokike.</p>
       <ul class="flex justify-center">
-        <li class="shadow-app rounded-2 mr-2 cursor-pointer">
+        <li v-for="icon in footerIcons" :key="icon" class="mr-2 cursor-pointer shadow-app rounded-2" :class="{'shadow-app-light':  state.theme === 'light'}">
           <a
             ref="icon"
-            class="flex justify-center items-center hover:shadow-app-inner h-10 w-10 p-0 rounded-2"
+            class="flex items-center justify-center w-10 h-10 p-0 hover:shadow-app-inner rounded-2"
+            :class="{'hover:shadow-app-light-inner':  state.theme === 'light'}"
           >
             <span id="icon" class="block w-2">
-              <fa icon="facebook-f"></fa>
-            </span>
-          </a>
-        </li>
-        <li class="shadow-app rounded-2 mr-2 cursor-pointer">
-          <a
-            ref="icon"
-            class="flex justify-center items-center hover:shadow-app-inner h-10 w-10 p-0 rounded-2"
-          >
-            <span id="icon" class="block w-3">
-              <fa icon="google"></fa>
-            </span>
-          </a>
-        </li>
-        <li class="shadow-app rounded-2 mr-1 cursor-pointer">
-          <a
-            ref="icon"
-            class="flex justify-center items-center hover:shadow-app-inner h-10 w-10 p-0 rounded-2"
-          >
-            <span id="icon" class="block w-3">
-              <fa icon="twitter"></fa>
+              <fa :icon="icon"></fa>
             </span>
           </a>
         </li>
@@ -96,6 +53,7 @@
 </template>
 
 <script>
+import { useState } from '../store';
 import HomeIcon from "@/assets/images/svg/home.svg";
 import Profile from "@/assets/images/svg/profile.svg";
 import Portfolio from "@/assets/images/svg/portfolio.svg";
@@ -108,16 +66,37 @@ export default {
     Portfolio,
     Mail,
   },
-  data() {
-    return {
-      date: new Date().getFullYear(),
-    };
-  },
+  setup(){
+    const { state } = useState();
+    const date = new Date().getFullYear();
+    const menuList = [
+      {
+        'label': 'Home',
+        'link': '/',
+        'component': "HomeIcon"
+      },
+      {
+        'label': 'About',
+        'link': '/about',
+        'component': "Profile"
+      },
+      {
+        'label': 'Portfolio',
+        'link': '/portfolio',
+        'component': "Portfolio"
+      },
+      {
+        'label': 'Contact',
+        'link': '/contact',
+        'component': "Mail"
+      },
+    ];
+    const footerIcons = ['facebook-f', 'google', 'twitter'];
+    function getActiveClass (){
+        return state.theme === 'light' ? 'shadow-app-light-inner': 'shadow-app-inner';
+    }
+
+    return { state, date, menuList, footerIcons, getActiveClass }
+  }
 };
 </script>
-
-<style>
-a.router-link-exact-active {
-  @apply shadow-app-inner;
-}
-</style>

@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         'app-black': '#2c2d30',
+        'app-light': '#f3f5f8',
         'line-color': 'rgba(255,255,255,.07)',
       },
       spacing: {
@@ -44,11 +45,17 @@ module.exports = {
     },
     boxShadow: {
       app: '3px 3px 3px #202125, -3px -3px 3px #353535',
+      'app-light': '3px 3px 3px #cdcdcd, -3px -3px 3px #fafafa',
       'app-inner': 'inset 3px 3px 3px #202125, inset -3px -3px 3px #353535',
+      'app-light-inner': 'inset 3px 3px 3px #cdcdcd, -3px -3px 3px #fafafa',
       'app-sm': '2px 2px 2px #202125, -2px -2px 2px #353535',
+      'app-light-sm': '2px 2px 2px #cdcdcd, -2px -2px 2px #fafafa',
       'app-sm-inner': 'inset 2px 2px 2px #202125, inset -2px -2px 2px #353535',
+      'app-light-sm-inner': 'inset 2px 2px 2px #cdcdcd, inset -2px -2px 2px #fafafa',
       'app-xsm-inner':
         'inset 1.5px 1.5px 1.5px #202125, inset -1.5px -1.5px 1.5px #353535',
+      'app-light-xsm-inner':
+        'inset 1.5px 1.5px 1.5px #cdcdcd, inset -1.5px -1.5px 1.5px #fafafa',
     },
     borderRadius: {
       '1': '1rem',
@@ -59,6 +66,7 @@ module.exports = {
     },
     textColor: {
       white: '#ffffff',
+      dark: '#212529',
       muted: '#9da1a5',
       icon: '#558D6A',
     },
