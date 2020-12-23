@@ -32,7 +32,8 @@
         class="hidden md:block square-poly img"
       />
 
-      <Square
+      <img
+        src="square.svg"
         style="transform: translate3d(-4px, -52.5px, 0px);"
         class="hidden md:block square img"
         :class="{'shadow-app-light': state.theme === 'light'}"
@@ -57,7 +58,6 @@ import { useState } from './store';
 import Menu from "@/components/Menu";
 import ColorPallete from "@/components/ColorPallete";
 import SquareRL from "@/assets/images/svg/square-rl.svg";
-import Square from "@/assets/images/svg/square.svg";
 import Triangle from "@/assets/images/svg/triangle.svg";
 
 export default {
@@ -66,7 +66,6 @@ export default {
     Menu,
     ColorPallete,
     SquareRL,
-    Square,
     Triangle,
   },
   setup() {

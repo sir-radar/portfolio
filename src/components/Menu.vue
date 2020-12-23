@@ -6,7 +6,7 @@
     >
       <div class="relative p-2 mb-6 profile-image shadow-app-inner w-11 h-11 rounded-50" :class="{'shadow-app-light-inner': state.theme === 'light'}">
         <div class="w-full h-full shadow-app rounded-50 p-7" :class="{'shadow-app-light': state.theme === 'light'}">
-          <img class="w-full h-full rounded-50" src="../assets/images/sam.jpeg" alt="profile-image" />
+          <img class="w-full h-full pointer-events-none rounded-50" src="../assets/images/sam.jpeg" alt="profile-image" />
         </div>
       </div>
       <div class="w-full mb-8">
