@@ -167,7 +167,7 @@ a .inner {
 
 .fade-enter-active,
 .fade-leave-active{
-  transition: all .5s ease;
+  transition: all .4s ease;
 }
 
 .fade-enter-to,
