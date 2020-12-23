@@ -8,7 +8,7 @@
     </h1>
     <div class="relative mb-6 text-xl text-muted">
       <h1 class="h-5">
-        <a href="" id="typewrite" data-period="3000" data-type='[ "Hi, there ✌.", "Sam here!", "I am a Fullstack developer.", "A Creative.", "A Football lover." ]'>
+        <a href="" id="typewrite" data-period="3000" data-type='[ "Hi, there ✌.", "Samson here!", "I am a Fullstack developer.", "A Creative.", "A Football lover." ]'>
           <span class="uppercase wrap"></span>
         </a>
       </h1>
