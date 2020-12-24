@@ -27,9 +27,11 @@ export const createState = () => {
         "#4765A0",
         "#E53F50",
       ];
-  const tempState = getData() || { priColor: '#7369B9', theme:'dark', colors }
+  const tempState = getData() || { priColor: '#7369B9', theme:'dark', colors, innerShadow: 'inset 3px 3px 3px #202125, inset -3px -3px 3px #353535', bgColor: '#2c2d30' }
   const state = reactive(tempState);
   root.style.setProperty('--priColor', state.priColor);
+  root.style.setProperty('--innerShadow', state.innerShadow);
+  root.style.setProperty('--bgColor', state.bgColor);
   const setPriColor = (value) => {
     state.priColor =  value;
     root.style.setProperty('--priColor', value);
@@ -37,7 +39,16 @@ export const createState = () => {
   }
   const setTheme = (value) => {
     state.theme =  value;
-    saveData(state)
+    if(value === 'light'){
+      state.innerShadow = 'inset 3px 3px 3px #cdcdcd, -3px -3px 3px #fafafa'
+      state.bgColor = '#f3f5f8'
+    }else{
+      state.innerShadow = 'inset 3px 3px 3px #202125, inset -3px -3px 3px #353535';
+      state.bgColor = '#2c2d30';
+    }
+    root.style.setProperty('--innerShadow', state.innerShadow);
+    root.style.setProperty('--bgColor', state.bgColor);
+    saveData(state);
   }
 
   return { setPriColor, setTheme, state: readonly(state) };

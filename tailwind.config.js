@@ -6,6 +6,7 @@ module.exports = {
         'app-black': '#2c2d30',
         'app-light': '#f3f5f8',
         'line-color': 'rgba(255,255,255,.07)',
+        'line-color-light': '#dee2e6',
       },
       spacing: {
         '7': '0.375rem',

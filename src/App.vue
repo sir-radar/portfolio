@@ -86,6 +86,8 @@ export default {
 <style>
 :root {
   --priColor: '';
+  --innerShadow: '';
+  --bgColor:'';
 }
 
 a,
