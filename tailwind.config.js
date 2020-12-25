@@ -4,6 +4,9 @@ module.exports = {
     fontFamily: {
       body: ['Poppins']
     },
+    minHeight: {
+      '40': '40rem'
+    },
     extend: {
       colors: {
         'app-black': '#2c2d30',
