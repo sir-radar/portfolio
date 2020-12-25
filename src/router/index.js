@@ -17,13 +17,13 @@ const routes = [
     path: '/portfolio',
     name: 'Portfolio',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../pages/Portfolio.vue'),
+      import(/* webpackChunkName: "portfolio" */ '../pages/Portfolio.vue'),
   },
   {
     path: '/contact',
     name: 'Contact',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../pages/Contact.vue'),
+      import(/* webpackChunkName: "contact" */ '../pages/Contact.vue'),
   },
 ];
 
