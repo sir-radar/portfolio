@@ -41,9 +41,11 @@
             ref="icon"
             class="flex items-center justify-center w-10 h-10 p-0 hover:shadow-app-inner rounded-2"
             :class="{'hover:shadow-app-light-inner':  state.theme === 'light'}"
+            target="_blank"
+            :href="icon.url"
           >
-            <span id="icon" class="block w-2">
-              <fa :icon="icon"></fa>
+            <span id="icon" class="block" :class="icon.class">
+              <fa :icon="icon.name"></fa>
             </span>
           </a>
         </li>
@@ -91,7 +93,28 @@ export default {
         'component': "Mail"
       },
     ];
-    const footerIcons = ['facebook-f', 'google', 'twitter'];
+    const footerIcons = [
+      {
+        name: 'facebook-f',
+        class: 'w-2',
+        url: 'https://web.facebook.com/nwokike.samson.9'
+      },
+      {
+        name: 'github',
+        class: 'w-3',
+        url: 'https://github.com/sir-radar'
+      },
+      {
+        name: 'twitter',
+        class: 'w-3',
+        url: 'https://twitter.com/sir_radar'
+      },
+      {
+        name: 'linkedin',
+        class: 'w-3',
+        url: 'https://www.linkedin.com/in/sir-radar'
+      },
+    ];
     function getActiveClass (){
         return state.theme === 'light' ? 'shadow-app-light-inner': 'shadow-app-inner';
     }

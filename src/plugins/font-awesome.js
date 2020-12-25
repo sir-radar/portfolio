@@ -10,6 +10,8 @@ import {
   faTwitter,
   faFacebookF,
   faGoogle,
+  faGithub,
+  faLinkedin
 } from '@fortawesome/free-brands-svg-icons';
 
 import FontAwesomeIcon from '@/lib/FontAwesomeIcon.vue';
@@ -22,7 +24,9 @@ library.add(
   faFacebookF,
   faChevronCircleDown,
   faCalendar,
-  faMoon
+  faMoon,
+  faGithub,
+  faLinkedin
 );
 
 export { FontAwesomeIcon };
