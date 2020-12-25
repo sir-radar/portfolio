@@ -74,33 +74,31 @@
       >Professional Skills</h3>
       <BigDivider class="mb-8" />
 
-      <div class="relative flex flex-col items-center justify-center md:flex-row">
-        <ul class="w-full md:w-11/12">
-          <li>
-            <h6
-              class="mb-2 font-semibold text-white uppercase"
-              :class="{'text-dark': state.theme === 'light'}"
-            >Html-css</h6>
-            <div
-              class="flex items-center h-4 px-2 mb-4 shadow-app-inner rounded-3"
-              :class="{'shadow-app-light-inner': state.theme === 'light'}"
-            >
-              <div
-                class="w-3/4 h-7 rounded-2"
-                :class="{'bg-app-black': state.theme === 'light', ' bg-app-light': state.theme === 'dark'}"
-                ></div>
-            </div>
-          </li>
-        </ul>
+      <h3 class="mb-1 text-base text-white uppercase" :class="{'text-dark': state.theme === 'light'}">Languages</h3>
+      <div class="relative flex flex-wrap items-center justify-start gap-2 mb-3">
+        <Capsule
+          v-for="lang in langauges"
+          :key="lang.name"
+          :lang="lang"
+        />
+      </div>
 
-        <div class="relative flex justify-center w-full md:block md:w-1/12">
-          <div
-            class="w-full px-6 text-center md:w-auto shadow-app md:transform md:rotate-90 py-7 rounded-1 top-n15 left-n15 md:absolute"
-            :class="{'shadow-app-light': state.theme === 'light'}"
-          >
-            <span class="text-white uppercase" :class="{'text-dark': state.theme === 'light'}">Coding</span>
-          </div>
-        </div>
+      <h3 class="mb-1 text-base text-white uppercase" :class="{'text-dark': state.theme === 'light'}">Technologies</h3>
+      <div class="relative flex flex-wrap items-center justify-start gap-2 mb-3">
+        <Capsule
+          v-for="tech in technologies"
+          :key="tech.name"
+          :lang="tech"
+        />
+      </div>
+
+      <h3 class="mb-1 text-base text-white uppercase" :class="{'text-dark': state.theme === 'light'}">Interested In</h3>
+      <div class="relative flex flex-wrap items-center justify-start gap-2 mb-3">
+        <Capsule
+          v-for="tech in interest"
+          :key="tech.name"
+          :lang="tech"
+        />
       </div>
     </section>
 
@@ -117,7 +115,7 @@
           :class="{'shadow-app-light bg-app-light': state.theme === 'light'}"
         >
           <div
-            class="flex items-center justify-center hover:shadow-app-inner rounded-2 h-53 w-53"
+            class="flex items-center justify-center animate hover:shadow-app-inner rounded-2 h-53 w-53"
             :class="{'hover:shadow-app-light-inner': state.theme === 'light'}"
           >
             <div class="w-6">
@@ -167,7 +165,7 @@
           :class="{'shadow-app-light bg-app-light': state.theme === 'light'}"
         >
           <div
-            class="flex items-center justify-center hover:shadow-app-inner rounded-2 h-53 w-53"
+            class="flex items-center justify-center animate hover:shadow-app-inner rounded-2 h-53 w-53"
             :class="{'hover:shadow-app-light-inner': state.theme === 'light'}"
           >
             <div class="w-6">
@@ -181,17 +179,14 @@
               <h6
                 class="mb-1 text-base font-semibold text-white"
                 :class="{'text-dark': state.theme === 'light'}"
-              >Bachelor Degree - Nnadi Azikiwe University</h6>
+              >Bachelor of Computer Science - Nnamdi Azikiwe University</h6>
               <div class="mb-1 text-sm text-muted">
                 <span :class="{'text-dark': state.theme === 'light'}">
                   <fa class="inline-block w-3 pb-1" icon="calendar"></fa> Feb 2011 - Aug 2015
                 </span>
               </div>
               <p class="text-muted">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit
-                ut sint voluptas rem? At nisi obcaecati placeat adipisci nobis?
-                Quidem rerum molestias ipsam vero fugiat sint porro in maxime
-                id?
+                Courses: OOP, Compilers, Algorithms, Operating Systems, Data Structures
               </p>
             </div>
           </div>
@@ -210,6 +205,7 @@ import BigDivider from "@/components/BigDivider";
 import Case from "@/assets/images/svg/case.svg";
 import Education from "@/assets/images/svg/education.svg";
 import BottomLinks from "@/components/BottomLinks";
+import Capsule from "@/components/Capsule";
 export default {
   name: "aboutPage",
   components: {
@@ -217,6 +213,7 @@ export default {
     Case,
     BottomLinks,
     Education,
+    Capsule
   },
   setup(){
     const { state } = useState();
@@ -316,9 +313,139 @@ export default {
       },
     ]
 
+    const langauges = [
+      {
+        name: 'HTML5',
+        icon: 'html-5.svg'
+      },
+      {
+        name: 'Css3',
+        icon: 'css-3.svg'
+      },
+      {
+        name: 'PHP',
+        icon: 'php.svg'
+      },
+      {
+        name: 'Javascript',
+        icon: 'javascript.svg'
+      },
+      {
+        name: 'Dart',
+        icon: 'dart.svg'
+      },
+    ]
+
+    const technologies = [
+      {
+        name: 'Laravel',
+        icon: 'laravel.svg'
+      },
+      {
+        name: 'Vue',
+        icon: 'vue.svg'
+      },
+      {
+        name: 'React',
+        icon: 'react.svg'
+      },
+      {
+        name: 'Angular',
+        icon: 'angular.svg'
+      },
+      {
+        name: 'Flutter',
+        icon: 'flutter.svg'
+      },
+      {
+        name: 'SASS',
+        icon: 'sass.svg'
+      },
+      {
+        name: 'Bootstrap',
+        icon: 'bootstrap.svg'
+      },
+      {
+        name: 'TailwindCSS',
+        icon: 'tailwindcss.svg'
+      },
+      {
+        name: 'Node.js',
+        icon: 'nodejs.svg'
+      },
+      {
+        name: 'Express',
+        icon: 'express.svg'
+      },
+      {
+        name: 'Livewire',
+        icon: 'livewire.svg'
+      },
+      {
+        name: 'Alpine.js',
+        icon: 'star.svg'
+      },
+      {
+        name: 'Apollo',
+        icon: 'apollo.svg'
+      },
+      {
+        name: 'GraphQL',
+        icon: 'graphql.svg'
+      },
+      {
+        name: 'Ionic',
+        icon: 'ionic.svg'
+      },
+      {
+        name: 'Jest',
+        icon: 'jest.svg'
+      },
+      {
+        name: 'Jira',
+        icon: 'jira.svg'
+      },
+      {
+        name: 'PostgreSQL',
+        icon: 'postgresql.svg'
+      },
+      {
+        name: 'Mysql',
+        icon: 'mysql.svg'
+      },
+      {
+        name: 'MongoDB',
+        icon: 'mongodb.svg'
+      },
+      {
+        name: 'Git',
+        icon: 'git.svg'
+      },
+      {
+        name: 'Docker',
+        icon: 'docker.svg'
+      },
+      {
+        name: 'AWS',
+        icon: 'aws.svg'
+      },
+
+    ]
+
+    const interest = [
+      {
+        name: 'Go Lang',
+        icon: 'go.svg'
+      },
+      {
+        name: 'Rust Lang',
+        icon: 'rust.svg'
+      },
+    ]
+
     const lastPersonalInfo =  computed(() =>  personalInfo.length - 1)
     const lastcontactInfo =  computed(() =>  contactInfo.length - 1)
-    return { state, personalInfo, contactInfo, lastPersonalInfo, lastcontactInfo, intro1, intro2, experience }
+    return { state, personalInfo, contactInfo, lastPersonalInfo, lastcontactInfo, intro1, intro2, experience, langauges, technologies, interest }
   }
 };
 </script>

@@ -1,6 +1,9 @@
 module.exports = {
   purge: ['./public/**/*.html', './src/**/*.vue'],
   theme: {
+    fontFamily: {
+      body: ['Poppins']
+    },
     extend: {
       colors: {
         'app-black': '#2c2d30',

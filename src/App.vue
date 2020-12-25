@@ -90,8 +90,12 @@ export default {
   --bgColor:'';
 }
 
+body {
+  font-family: 'Poppins';
+}
+
 a,
-a .inner {
+a .inner, .animate {
   transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;
