@@ -192,14 +192,4 @@ a .inner, .animate {
   opacity: 1;
   transform: translateY(0);
 }
-
-.load-enter-active,
-.load-leave-active {
-  transition: opacity 10s ease;
-}
-
-.load-enter-from,
-.load-leave-to {
-  opacity: 0;
-}
 </style>

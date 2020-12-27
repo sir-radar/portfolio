@@ -9,6 +9,6 @@ const app = createApp(App)
   .use(router)
   .provide(stateSymbol, createState())
   .component('fa', FontAwesomeIcon);
-  // router.isReady().then(() => {
+  router.isReady().then(() => {
     app.mount('#app');
-  // })
+  })
