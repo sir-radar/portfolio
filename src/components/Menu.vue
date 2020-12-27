@@ -11,7 +11,7 @@
       </div>
       <div class="w-full mb-8">
         <h3 class="text-2xl font-semibold text-white" :class="{'text-dark': state.theme === 'light'}">Samson Nwokike</h3>
-        <h6 class="text-base text-muted">Full Stack Developer</h6>
+        <h6 class="text-base text-muted">Frontend Developer</h6>
       </div>
       <nav class="w-full">
         <ul class="w-full">

@@ -10,7 +10,7 @@
         class="font-semibold text-white uppercase text-title"
         :class="{'text-dark': state.theme === 'light'}"
       >Samson Nwokike</h3>
-      <p class="mb-2 text-xl text-muted">Full Stack Developer</p>
+      <p class="mb-2 text-xl text-muted">Frontend Developer</p>
       <div class="flex flex-col w-full mb-3 md:flex-row">
         <div class="w-full md:w-1/2 mb-15 md:mb-0 md:pr-15 text-muted">
           {{ intro1 }}
