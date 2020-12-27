@@ -3,7 +3,13 @@
     class="px-3 bg-app-black sm:px-70 md:px-70"
     :class="{'bg-app-light': state.theme === 'light'}"
     >
-    <div class="relative z-10 flex flex-col-reverse items-start w-full py-32 md:flex-row">
+
+    <Loader v-show="loading"/>
+
+    <div
+      class="relative z-10 flex flex-col-reverse items-start w-full py-32 md:flex-row"
+      v-show="!loading"
+    >
       <Triangle
         class="hidden md:block triangle img"
         style="transform: translate3d(10px, 4px, 0px);"
@@ -40,10 +46,6 @@
       />
 
       <div class="z-10 w-full md:w-3/4 md:pr-2">
-        <!-- <router-view
-          class="p-12 bg-app-black rounded-2 shadow-app"
-          :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"
-        /> -->
         <router-view
           class="p-12 bg-app-black rounded-2 shadow-app"
           :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"
@@ -58,13 +60,15 @@
       </div>
     </div>
 
-    <ColorPallete />
+    <ColorPallete v-show="!loading" />
   </div>
 </template>
 <script>
+import {onMounted, ref} from 'vue';
 import { useState } from './store';
 import Menu from "@/components/Menu";
 import ColorPallete from "@/components/ColorPallete";
+import Loader from "@/components/Loader";
 import SquareRL from "@/assets/images/svg/square-rl.svg";
 import Triangle from "@/assets/images/svg/triangle.svg";
 
@@ -73,13 +77,20 @@ export default {
   components: {
     Menu,
     ColorPallete,
+    Loader,
     SquareRL,
     Triangle,
   },
   setup() {
+    onMounted(() => {
+      setTimeout(()=> {
+        loading.value = false;
+      }, 4000)
+    })
     const { state } = useState();
+    let loading = ref(true);
 
-    return {state}
+    return {state, loading}
   }
 };
 </script>
@@ -180,5 +191,15 @@ a .inner, .animate {
 .fade-leave-from{
   opacity: 1;
   transform: translateY(0);
+}
+
+.load-enter-active,
+.load-leave-active {
+  transition: opacity 10s ease;
+}
+
+.load-enter-from,
+.load-leave-to {
+  opacity: 0;
 }
 </style>

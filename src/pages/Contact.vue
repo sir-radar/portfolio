@@ -40,7 +40,7 @@
       </h3>
       <BigDivider class="mb-8" />
     </section>
-    <section class="send_email">
+    <section class="mb-32 send_email">
       <h3
         class="mb-2 text-base font-bold text-white uppercase"
         :class="{'text-dark': state.theme === 'light'}"
@@ -48,15 +48,19 @@
         SEND ME AN EMAIL
       </h3>
       <BigDivider class="mb-8" />
-      <form @submit.prevent="">
+      <form @submit.prevent="sendEmail">
         <div class="flex w-full mb-3">
           <div class="w-1/2 pr-15">
-            <div class="w-full shadow-app rounded-2" :class="{'shadow-app-light': state.theme === 'light'}">
+            <div
+              class="w-full shadow-app rounded-2"
+              :class="{'shadow-app-light': state.theme === 'light'}"
+            >
               <input
                 type="text"
                 class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner"
                 :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
                 placeholder="Name"
+                v-model="name"
               />
             </div>
           </div>
@@ -70,6 +74,37 @@
               class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner"
               :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
               placeholder="Email"
+              v-model="email"
+            >
+          </div>
+          </div>
+        </div>
+        <div class="flex w-full mb-3">
+          <div class="w-1/2 pr-15">
+            <div
+              class="w-full shadow-app rounded-2"
+              :class="{'shadow-app-light': state.theme === 'light'}"
+            >
+              <input
+                type="text"
+                class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner"
+                :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
+                placeholder="Company"
+                v-model="company"
+              />
+            </div>
+          </div>
+          <div class="w-1/2 pl-15">
+          <div
+            class="w-full shadow-app rounded-2"
+            :class="{'shadow-app-light': state.theme === 'light'}"
+          >
+            <input
+              type="text"
+              class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner"
+              :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
+              placeholder="Subject"
+              v-model="subject"
             >
           </div>
           </div>
@@ -85,7 +120,9 @@
                 :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
                 placeholder="Message"
                 rows="6"
-                spellcheck="false">
+                spellcheck="false"
+                v-model="message"
+              >
               </textarea>
             </div>
           </div>
@@ -104,7 +141,9 @@
   </div>
 </template>
 <script>
+import {ref} from 'vue';
 import {useState} from '../store';
+import emailjs from 'emailjs-com';
 import BigDivider from "@/components/BigDivider";
 import BottomLinks from '@/components/BottomLinks';
 export default {
@@ -115,8 +154,42 @@ export default {
   },
   setup(){
     const { state } = useState();
+    let name = ref('');
+    let email = ref('');
+    let company = ref('');
+    let subject = ref('');
+    let message = ref('');
+    let loading = ref(false);
+    let error = ref(false);
+    function sendEmail() {
+      loading.value = true;
+      const data = {
+        to_name: "Samson",
+        from_name: name.value,
+        from_email: email.value,
+        subject: subject.value,
+        company: company.value,
+        message: message.value
+      }
+      emailjs.send(
+        process.env.VUE_APP_EMAIL_SERVICE_ID,
+        process.env.VUE_APP_EMAIL_TEMPLATE_ID,
+        data,
+        process.env.VUE_APP_EMAIL_USER_ID)
+      .then(function() {
+        name.value = '';
+        email.value = '';
+        company.value = '';
+        subject.value = '';
+        message.value = '';
+        loading.value = false;
+      }, function() {
+        error.value = true;
+        loading.value = false;
+      });
+    }
 
-    return {state}
+    return {state, sendEmail, name, email, message, company, subject, loading, error}
   }
 };
 </script>
