@@ -182,7 +182,7 @@
               >Bachelor of Computer Science - Nnamdi Azikiwe University</h6>
               <div class="mb-1 text-sm text-muted">
                 <span :class="{'text-dark': state.theme === 'light'}">
-                  <fa class="inline-block w-3 pb-1" icon="calendar"></fa> Feb 2011 - Aug 2015
+                  <fa class="inline-block w-3 pb-1" icon="calendar"></fa> Sep 2011 - AUG 2015
                 </span>
               </div>
               <p class="text-muted">
