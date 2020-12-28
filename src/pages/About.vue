@@ -476,11 +476,11 @@ export default {
 .summary::before {
   background: var(--priColor);
   content: "";
-  height: 0.625rem;
+  height: 0.25rem;
   left: -.7rem;
   position: absolute;
   text-align: center;
-  top: .4rem;
+  top: .6rem;
   width: 0.25rem;
   border-radius: 1rem;
 }
