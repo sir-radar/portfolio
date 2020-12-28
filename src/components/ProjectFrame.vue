@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-1/3 px-4 py-4">
+  <div class="relative w-full px-4 py-4 md:w-1/3">
     <div
       class="p-2 shadow-app-inner h-188 rounded-1"
       :class="{'shadow-app-light-inner': state.theme === 'light'}"

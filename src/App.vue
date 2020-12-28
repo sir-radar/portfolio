@@ -47,7 +47,7 @@
 
       <div class="z-10 w-full md:w-3/4 md:pr-2">
         <router-view
-          class="p-12 bg-app-black rounded-2 shadow-app"
+          class="p-6 md:p-12 bg-app-black rounded-2 shadow-app"
           :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"
           v-slot="{ Component }">
           <transition name="fade" mode="out-in">

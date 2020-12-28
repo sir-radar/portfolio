@@ -49,8 +49,8 @@
       </h3>
       <BigDivider class="mb-8" />
       <form @submit.prevent="sendEmail">
-        <div class="flex w-full mb-3">
-          <div class="w-1/2 pr-15">
+        <div class="flex flex-col w-full mb-3 md:flex-row">
+          <div class="w-full mb-3 md:w-1/2 md:pr-15 md:mb-0">
             <div
               class="w-full shadow-app rounded-2"
               :class="{'shadow-app-light': state.theme === 'light'}"
@@ -64,7 +64,7 @@
               />
             </div>
           </div>
-          <div class="w-1/2 pl-15">
+          <div class="w-full md:w-1/2 md:pl-15">
           <div
             class="w-full shadow-app rounded-2"
             :class="{'shadow-app-light': state.theme === 'light'}"
@@ -79,8 +79,8 @@
           </div>
           </div>
         </div>
-        <div class="flex w-full mb-3">
-          <div class="w-1/2 pr-15">
+        <div class="flex flex-col w-full mb-3 md:flex-row">
+          <div class="w-full mb-3 md:w-1/2 md:pr-15 md:mb-0">
             <div
               class="w-full shadow-app rounded-2"
               :class="{'shadow-app-light': state.theme === 'light'}"
@@ -94,7 +94,7 @@
               />
             </div>
           </div>
-          <div class="w-1/2 pl-15">
+          <div class="w-full md:w-1/2 md:pl-15">
           <div
             class="w-full shadow-app rounded-2"
             :class="{'shadow-app-light': state.theme === 'light'}"

@@ -6,7 +6,7 @@
       >
       Samson Nwokike
     </h1>
-    <div class="relative mb-6 text-xl text-muted">
+    <div class="relative mb-6 text-sm md:text-xl text-muted">
       <h1 class="h-5">
         <a href="" id="typewrite" data-period="3000" data-type='[ "Hi, there ✌.", "Samson here!", "I am a Frontend developer", "with some experience in Backend development.", "I am a Creative", "and a Football lover." ]'>
           <span class="uppercase wrap"></span>
