@@ -1,6 +1,6 @@
 <template>
   <div id="color-pallete" class="fixed z-20 top-50" :class="{ 'left-30': show, hide: !show }">
-    <div class="flex items-start">
+    <div class="flex items-start h-1">
       <div class="mr-5 w-278 shadow-app p-33 bg-app-black rounded-2" :class="{'bg-app-light shadow-app-light': state.theme == 'light' }">
         <h6 class="text-base font-semibold text-white mb-15" :class="{'text-dark': state.theme == 'light' }">Theme Colors</h6>
         <Divider />
