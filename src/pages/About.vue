@@ -143,7 +143,7 @@
                   </span>
                 </span>
               </div>
-              <p v-for="(summary, i) in exp.summary" :key="i" class="text-muted">
+              <p v-for="(summary, i) in exp.summary" :key="i" class="relative mb-2 text-muted summary">
                 {{summary}}
               </p>
             </div>
@@ -472,5 +472,16 @@ export default {
   top: 1.6rem;
   width: 0.25rem;
   @apply rounded-2;
+}
+.summary::before {
+  background: var(--priColor);
+  content: "";
+  height: 0.625rem;
+  left: -.7rem;
+  position: absolute;
+  text-align: center;
+  top: .4rem;
+  width: 0.25rem;
+  border-radius: 1rem;
 }
 </style>
