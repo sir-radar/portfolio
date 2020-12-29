@@ -57,8 +57,8 @@
             >
               <input
                 type="text"
-                class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner"
-                :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
+                class="w-full animate form-control hover:shadow-app-inner focus:shadow-app-inner"
+                :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light', 'error': errors.name}"
                 placeholder="Name"
                 v-model="name"
               />
@@ -71,8 +71,8 @@
           >
             <input
               type="email"
-              class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner"
-              :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
+              class="w-full animate form-control hover:shadow-app-inner focus:shadow-app-inner"
+              :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light', 'error': errors.email}"
               placeholder="Email"
               v-model="email"
             >
@@ -87,7 +87,7 @@
             >
               <input
                 type="text"
-                class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner"
+                class="w-full animate form-control hover:shadow-app-inner focus:shadow-app-inner"
                 :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
                 placeholder="Company"
                 v-model="company"
@@ -101,8 +101,8 @@
           >
             <input
               type="text"
-              class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner"
-              :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
+              class="w-full animate form-control hover:shadow-app-inner focus:shadow-app-inner"
+              :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light', 'error': errors.subject}"
               placeholder="Subject"
               v-model="subject"
             >
@@ -116,8 +116,8 @@
               :class="{'shadow-app-light': state.theme === 'light'}"
             >
               <textarea
-                class="w-full form-control hover:shadow-app-inner focus:shadow-app-inner resize-n"
-                :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light'}"
+                class="w-full animate form-control hover:shadow-app-inner focus:shadow-app-inner resize-n"
+                :class="{'hover:shadow-app-light-inner focus:shadow-app-light-inner': state.theme === 'light', 'error': errors.message}"
                 placeholder="Message"
                 rows="6"
                 spellcheck="false"
@@ -127,13 +127,26 @@
             </div>
           </div>
         </div>
-        <button
-          class="px-6 py-2 font-medium shadow-app hover:shadow-app-inner rounded-2 text-submit outline-zero"
-          :class="{'shadow-app-light hover:shadow-app-light-inner': state.theme === 'light'}"
-          style="color: var(--priColor)"
-          type="submit"
-        >Send message</button>
+        <div
+          class="inline-block w-auto shadow-app rounded-2"
+          :class="{'shadow-app-light': state.theme === 'light'}"
+        >
+          <button
+            class="flex justify-center px-6 py-2 font-medium w-28 animate hover:shadow-app-inner rounded-2 text-submit outline-zero"
+            :class="{'hover:shadow-app-light-inner': state.theme === 'light'}"
+            style="color: var(--priColor)"
+            type="submit"
+          >
+            <span
+              class="block w-5 h-5 mr-2 settings"
+              :class="{'hidden': !loading}"
+            ><fa icon="spinner"/></span>
+            <span>Send</span>
+          </button>
+        </div>
       </form>
+
+      <div v-show="showMessage" class="mt-3" style="color: var(--priColor)">Message sent successfully.</div>
     </section>
     <div class="flex flex-col items-center justify-center">
       <BottomLinks />
@@ -160,9 +173,31 @@ export default {
     let subject = ref('');
     let message = ref('');
     let loading = ref(false);
-    let error = ref(false);
+    let errors = ref({});
+    let showMessage = ref(false);
+
+    function valiate(value){
+      return value.trim()?.length < 1;
+    }
+    function toggleMessage(){
+      showMessage.value = true;
+      setTimeout(()=> {
+        showMessage.value = false
+      }, 10000)
+    }
     function sendEmail() {
       loading.value = true;
+      errors.value.name = valiate(name.value);
+      errors.value.email = valiate(email.value);
+      errors.value.subject = valiate(subject.value);
+      errors.value.message = valiate(message.value);
+
+      const entries = Object.values(errors.value);
+      if(entries.includes(true)){
+        loading.value = false;
+        return;
+      }
+
       const data = {
         to_name: "Samson",
         from_name: name.value,
@@ -183,13 +218,14 @@ export default {
         subject.value = '';
         message.value = '';
         loading.value = false;
+        errors.value = {};
+        toggleMessage()
       }, function() {
-        error.value = true;
         loading.value = false;
       });
     }
 
-    return {state, sendEmail, name, email, message, company, subject, loading, error}
+    return {state, sendEmail, name, email, message, company, subject, loading, errors, showMessage}
   }
 };
 </script>
@@ -215,5 +251,8 @@ export default {
 }
 .outline-zero{
   outline: none !important;
+}
+.error{
+  border: 1px solid red;
 }
 </style>
