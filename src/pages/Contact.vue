@@ -42,14 +42,14 @@
       <div class="flex flex-col flex-wrap w-full mb-4 md:flex-row">
         <div class="w-full mb-3 md:w-1/2 md:pr-15 md:mb-0">
           <p
-            class="w-full py-1 text-sm text-center shadow-app-inner rounded-2 text-muted"
+            class="w-full py-2 text-sm text-center shadow-app-inner rounded-2 text-muted"
             :class="{'shadow-app-light-inner': state.theme === 'light'}">
               Email: nwokikesamson@gmail.com
             </p>
         </div>
         <div class="w-full md:w-1/2 md:pl-15">
           <p
-            class="w-full py-1 text-sm text-center shadow-app-inner rounded-2 text-muted"
+            class="w-full py-2 text-sm text-center shadow-app-inner rounded-2 text-muted"
             :class="{'shadow-app-light-inner': state.theme === 'light'}">
               Phone: +2349032326238
           </p>
@@ -58,14 +58,14 @@
       <div class="flex flex-col flex-wrap w-full mb-3 md:flex-row">
         <div class="w-full mb-3 md:w-1/2 md:pr-15 md:mb-0">
           <p
-            class="w-full py-1 text-sm text-center shadow-app-inner rounded-2 text-muted"
+            class="w-full py-2 text-sm text-center shadow-app-inner rounded-2 text-muted"
             :class="{'shadow-app-light-inner': state.theme === 'light'}">
               Skype: live:nwokikesamson
             </p>
         </div>
         <div class="w-full md:w-1/2 md:pl-15">
           <p
-            class="w-full py-1 text-sm text-center shadow-app-inner rounded-2 text-muted"
+            class="w-full py-2 text-sm text-center shadow-app-inner rounded-2 text-muted"
             :class="{'shadow-app-light-inner': state.theme === 'light'}">
               LinkedIn: linkedin.com/in/sir-radar
           </p>
