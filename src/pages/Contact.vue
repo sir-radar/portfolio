@@ -31,7 +31,7 @@
         </div>
       </div>
     </section>
-    <section class="info">
+    <section class="mb-5 info">
       <h3
         class="mb-2 text-base font-bold text-white uppercase"
         :class="{'text-dark': state.theme === 'light'}"
@@ -39,6 +39,38 @@
         Contact info
       </h3>
       <BigDivider class="mb-8" />
+      <div class="flex flex-col flex-wrap w-full mb-4 md:flex-row">
+        <div class="w-full mb-3 md:w-1/2 md:pr-15 md:mb-0">
+          <p
+            class="w-full py-1 text-sm text-center shadow-app-inner rounded-2 text-muted"
+            :class="{'shadow-app-light-inner': state.theme === 'light'}">
+              Email: nwokikesamson@gmail.com
+            </p>
+        </div>
+        <div class="w-full md:w-1/2 md:pl-15">
+          <p
+            class="w-full py-1 text-sm text-center shadow-app-inner rounded-2 text-muted"
+            :class="{'shadow-app-light-inner': state.theme === 'light'}">
+              Phone: +2349032326238
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col flex-wrap w-full mb-3 md:flex-row">
+        <div class="w-full mb-3 md:w-1/2 md:pr-15 md:mb-0">
+          <p
+            class="w-full py-1 text-sm text-center shadow-app-inner rounded-2 text-muted"
+            :class="{'shadow-app-light-inner': state.theme === 'light'}">
+              Skype: live:nwokikesamson
+            </p>
+        </div>
+        <div class="w-full md:w-1/2 md:pl-15">
+          <p
+            class="w-full py-1 text-sm text-center shadow-app-inner rounded-2 text-muted"
+            :class="{'shadow-app-light-inner': state.theme === 'light'}">
+              LinkedIn: linkedin.com/in/sir-radar
+          </p>
+        </div>
+      </div>
     </section>
     <section class="mb-32 send_email">
       <h3
