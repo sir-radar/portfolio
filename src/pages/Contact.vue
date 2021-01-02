@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="contact">
     <section id="header">
       <h3
         class="mb-2 text-base font-bold text-white uppercase"

@@ -254,7 +254,7 @@ export default {
         endDate: 'OCT 2020',
         current: true,
         summary: [
-          'Built UI components in React.js and other frontend technologies to digitize the process of global trade.',
+          'Built UI components in React.js and other frontend technologies to digitize the process around the Nigerian stock exchange.',
           'Improved output on project by increasing project completion rate by over 20% in one month, meeting deadlines and improving client satisfaction.'
         ]
       },
