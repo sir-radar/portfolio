@@ -5,7 +5,8 @@ import {
   faChevronCircleDown,
   faCalendar,
   faMoon,
-  faSpinner
+  faSpinner,
+  faEye
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faTwitter,
@@ -28,7 +29,8 @@ library.add(
   faMoon,
   faGithub,
   faLinkedin,
-  faSpinner
+  faSpinner,
+  faEye
 );
 
 export { FontAwesomeIcon };
