@@ -7,7 +7,7 @@
     <Loader v-show="loading"/>
 
     <div
-      class="relative z-10 flex flex-col-reverse items-start w-full py-32 md:flex-row"
+      class="relative flex flex-col-reverse items-start w-full py-32 md:flex-row"
       v-show="!loading"
     >
       <Triangle
@@ -45,7 +45,7 @@
         :class="{'shadow-app-light': state.theme === 'light'}"
       />
 
-      <div class="z-10 w-full md:w-3/4 md:pr-2">
+      <div class="w-full app-wrap md:w-3/4 md:pr-2">
         <router-view
           class="p-6 md:p-12 bg-app-black rounded-2 shadow-app"
           :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"
@@ -54,13 +54,12 @@
             <component :is="Component" />
           </transition>
         </router-view>
+        <ColorPallete v-show="!loading" />
       </div>
-      <div class="z-10 w-full mb-8 md:mb-0 md:w-1/4 md:pl-2">
+      <div class="sticky w-full mb-8 top-16 md:mb-0 md:w-1/4 md:pl-2">
         <Menu />
       </div>
     </div>
-
-    <ColorPallete v-show="!loading" />
   </div>
 </template>
 <script>
@@ -106,6 +105,14 @@ html{
 
 body {
   font-family: 'Poppins';
+}
+
+#app{
+  z-index: 0;
+}
+
+.app-wrap{
+  z-index: 1;
 }
 
 a,

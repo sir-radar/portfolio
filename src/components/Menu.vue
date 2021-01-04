@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky z-10 w-full top-16 rounded-2">
+  <div class="z-10 w-full rounded-2">
     <header
       class="flex flex-col items-center px-6 py-12 mb-8 text-center shadow-app bg-app-black rounded-2"
       :class="{'bg-app-light shadow-app-light': state.theme === 'light'}"

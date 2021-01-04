@@ -22,8 +22,13 @@
     </section>
     <section id="works" class="mb-12">
       <div class="flex flex-wrap items-start -mx-4">
-       <ProjectFrame v-for="project in comProjects" :key="project.name"/>
+       <ProjectFrame
+        v-for="project in comProjects"
+        :key="project.name"
+        @show="showModal"
+        />
       </div>
+      <Modal v-if="show" @close="closeModal"/>
     </section>
     <div class="flex flex-col items-center justify-center">
       <BottomLinks />
@@ -37,65 +42,75 @@ import BigDivider from '@/components/BigDivider';
 import Divider from '@/components/Divider';
 import BottomLinks from '@/components/BottomLinks';
 import ProjectFrame from '@/components/ProjectFrame';
+import Modal from '@/components/Modal';
 export default {
   name: 'aboutPage',
   components: {
     BigDivider,
     Divider,
     BottomLinks,
-    ProjectFrame
+    ProjectFrame,
+    Modal
   },
   setup(){
     const { state } = useState();
-    const active = ref('All');
+    let active = ref('All');
+    let show = ref(false);
     const navs = ['All', 'Web', 'Mobile'];
     const projects = [
       {
-        name: '',
-        image: '',
-        url: '',
+        name: 'new',
+        image: 'new name',
+        url: 'new name',
         type: 'Web'
       },
       {
-        name: '',
-        image: '',
-        url: '',
+        name: 'name',
+        image: 'new name',
+        url: 'new name',
         type: 'Web'
       },
       {
-        name: '',
-        image: '',
-        url: '',
+        name: 'jax',
+        image: 'new name',
+        url: 'new name',
         type: 'Web'
       },
       {
-        name: '',
-        image: '',
-        url: '',
+        name: 'mob',
+        image: 'new name',
+        url: 'new name',
         type: 'Web'
       },
       {
-        name: '',
-        image: '',
-        url: '',
+        name: 'wax',
+        image: 'new name',
+        url: 'new name',
         type: 'Mobile'
       },
       {
-        name: '',
-        image: '',
-        url: '',
+        name: 'never',
+        image: 'new name',
+        url: 'new name',
         type: 'Mobile'
       }
     ]
     function moveTo(navigation) {
       this.active = navigation;
     }
+    function showModal(data){
+      console.log(data)
+      show.value = true;
+    }
+    function closeModal(){
+      show.value = false;
+    }
     const comProjects =  computed(() =>  {
       if(active.value === 'All') return projects;
       return projects.filter(p => p.type === active.value)
     })
 
-    return {state, active, moveTo, navs, comProjects}
+    return {state, active, moveTo, navs, comProjects, show, showModal, closeModal}
   }
 };
 </script>

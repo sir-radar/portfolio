@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full px-4 py-4 md:w-1/3">
+  <div @click="triggerModal" class="relative w-full px-4 py-4 cursor-pointer md:w-1/3">
     <div
       class="relative p-2 shadow-app-inner h-188 rounded-1 box"
       :class="{'shadow-app-light-inner': state.theme === 'light'}"
@@ -28,9 +28,12 @@ export default {
   props: {
     project: Object
   },
-  setup(){
+  setup(props, { emit }){
     const { state } = useState();
-    return { state }
+    function triggerModal(){
+      emit('show', true)
+    }
+    return { state, triggerModal }
   }
 };
 </script>
