@@ -103,7 +103,7 @@ export default {
         type: 'Web'
       },
       {
-        name: 'CodePen Edit',
+        name: 'CodEdit',
         image: '/projects/codedit.png',
         description: `A simple Codepen clone for quickly prototyping web applications or components using HTML, CSS and Javascript on the web.`,
         demoUrl: 'https://www.codedit.samiyke.com/',

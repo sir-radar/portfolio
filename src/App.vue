@@ -56,7 +56,7 @@
         </router-view>
         <ColorPallete v-show="!loading" />
       </div>
-      <div class="w-full mb-8 md:sticky top-16 md:mb-0 md:w-1/4 md:pl-2">
+      <div class="w-full mb-8 md:sticky md:top-16 md:mb-0 md:w-1/4 md:pl-2">
         <Menu />
       </div>
     </div>

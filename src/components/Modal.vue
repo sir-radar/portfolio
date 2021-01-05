@@ -2,7 +2,7 @@
     <div
     class="fixed inset-x-0 bottom-0 z-20 px-4 pb-4 sm:inset-0 sm:flex sm:items-center sm:justify-center"
     >
-    <div @click.stop="close" class="fixed close">
+    <div @click.stop="close" class="fixed cursor-pointer close">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
             <path
             fill-rule="evenodd"
