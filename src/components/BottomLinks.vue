@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <div class="text-sm font-semibold uppercase">Download my cv</div>
+        <div class="text-sm font-semibold uppercase">Download my resume</div>
       </a>
     </div>
     <div @click="print" class="px-4">

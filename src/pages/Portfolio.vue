@@ -25,10 +25,13 @@
        <ProjectFrame
         v-for="project in comProjects"
         :key="project.name"
+        :project="project"
         @show="showModal"
         />
       </div>
-      <Modal v-if="show" @close="closeModal"/>
+      <transition name="modal" appear>
+        <Modal :project="selectedProject" v-if="show" @close="closeModal"/>
+      </transition>
     </section>
     <div class="flex flex-col items-center justify-center">
       <BottomLinks />
@@ -56,43 +59,16 @@ export default {
     const { state } = useState();
     let active = ref('All');
     let show = ref(false);
+    let selectedProject = ref({});
     const navs = ['All', 'Web', 'Mobile'];
     const projects = [
       {
-        name: 'new',
-        image: 'new name',
-        url: 'new name',
+        name: 'Breaking Bad Cast',
+        image: '/projects/breakingbad.png',
+        description: `A web application built around the blockbuster movie series, Breaking bad.\n This application uses the open Breaking bad API to search for the casts of the movie rather easily.`,
+        demoUrl: 'https://breaking-bad-cast.samiyke.com/',
+        repoUrl: 'https://github.com/sir-radar/breaking-bad-cast',
         type: 'Web'
-      },
-      {
-        name: 'name',
-        image: 'new name',
-        url: 'new name',
-        type: 'Web'
-      },
-      {
-        name: 'jax',
-        image: 'new name',
-        url: 'new name',
-        type: 'Web'
-      },
-      {
-        name: 'mob',
-        image: 'new name',
-        url: 'new name',
-        type: 'Web'
-      },
-      {
-        name: 'wax',
-        image: 'new name',
-        url: 'new name',
-        type: 'Mobile'
-      },
-      {
-        name: 'never',
-        image: 'new name',
-        url: 'new name',
-        type: 'Mobile'
       }
     ]
     function moveTo(navigation) {
@@ -100,6 +76,7 @@ export default {
     }
     function showModal(data){
       console.log(data)
+      selectedProject.value = data;
       show.value = true;
     }
     function closeModal(){
@@ -110,12 +87,26 @@ export default {
       return projects.filter(p => p.type === active.value)
     })
 
-    return {state, active, moveTo, navs, comProjects, show, showModal, closeModal}
+    return {state, active, moveTo, navs, comProjects, show, showModal, closeModal, selectedProject}
   }
 };
 </script>
 <style lang="scss">
 .active{
   color: var(--priColor);
+}
+.modal-enter-from,
+.modal-leave-to{
+  opacity: 0;
+}
+
+.modal-enter-active,
+.modal-leave-active{
+  transition: all .5s ease;
+}
+
+.modal-enter-to,
+.modal-leave-from{
+  opacity: 1;
 }
 </style>

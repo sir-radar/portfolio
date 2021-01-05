@@ -9,6 +9,14 @@
         :class="{'shadow-app-light': state.theme === 'light'}"
       >
         <img
+          v-show="project?.image"
+          loading=lazy
+          :src="project?.image"
+          class="object-cover object-center w-full h-full rounded-1"
+        />
+        <img
+          v-show="!project?.image"
+          loading=lazy
           src="../assets/images/sam.jpeg"
           class="object-cover object-center w-full h-full rounded-1"
         />
@@ -31,7 +39,7 @@ export default {
   setup(props, { emit }){
     const { state } = useState();
     function triggerModal(){
-      emit('show', true)
+      emit('show', props.project)
     }
     return { state, triggerModal }
   }
