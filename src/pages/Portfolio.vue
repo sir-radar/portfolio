@@ -69,7 +69,31 @@ export default {
         demoUrl: 'https://breaking-bad-cast.samiyke.com/',
         repoUrl: 'https://github.com/sir-radar/breaking-bad-cast',
         type: 'Web'
-      }
+      },
+      {
+        name: 'Flappy Bird Web',
+        image: '/projects/flappybird.png',
+        description: `Web clone version of the popular Flappy bird game. Flappy Bird is a mobile game developed by Vietnamese video game artist and programmer Dong Nguyen, under his game development company and initailly relased in 2013.`,
+        demoUrl: 'https://flappybird.samiyke.com/',
+        repoUrl: 'https://github.com/sir-radar/flappyBirdClone',
+        type: 'Web'
+      },
+      {
+        name: 'E-commerce Website',
+        image: '/projects/ecommerce.png',
+        description: `This is a basic E-commerce application to show an average user interactions with ecommerce websites. These actions include: selecting items and checking out.`,
+        demoUrl: 'https://e-commerce.samiyke.com/',
+        repoUrl: 'https://github.com/sir-radar/e-commerce',
+        type: 'Web'
+      },
+      {
+        name: 'Web StopWatch',
+        image: '/projects/stopwatch.png',
+        description: `Stopwatch prototype for the web with all the basic features. This application include the basic start, pause, stop and lap functionalities.`,
+        demoUrl: 'https://web-stopwatch.samiyke.com/',
+        repoUrl: 'https://github.com/sir-radar/vue-timer-app',
+        type: 'Web'
+      },
     ]
     function moveTo(navigation) {
       this.active = navigation;
