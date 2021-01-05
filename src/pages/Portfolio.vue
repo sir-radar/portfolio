@@ -60,7 +60,7 @@ export default {
     let active = ref('All');
     let show = ref(false);
     let selectedProject = ref({});
-    const navs = ['All', 'Web', 'Mobile'];
+    const navs = ['All', 'Web'];
     const projects = [
       {
         name: 'Breaking Bad Cast',
