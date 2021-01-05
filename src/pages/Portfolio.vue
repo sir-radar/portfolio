@@ -94,6 +94,30 @@ export default {
         repoUrl: 'https://github.com/sir-radar/vue-timer-app',
         type: 'Web'
       },
+      {
+        name: 'Movie Tracker',
+        image: '/projects/movietracker.png',
+        description: `A movie search website built around the moviedb API. You can easily search for movies, add them to watchlist or favourite list, read about them and see trailers.`,
+        demoUrl: 'https://movie-tracker.samiyke.com/',
+        repoUrl: 'https://github.com/sir-radar/movie-tracker',
+        type: 'Web'
+      },
+      {
+        name: 'CodePen Edit',
+        image: '/projects/codedit.png',
+        description: `A simple Codepen clone for quickly prototyping web applications or components using HTML, CSS and Javascript on the web.`,
+        demoUrl: 'https://www.codedit.samiyke.com/',
+        repoUrl: 'https://github.com/sir-radar/codepen-clone',
+        type: 'Web'
+      },
+      {
+        name: 'Active Learning Book Store',
+        image: '/projects/bookstore.png',
+        description: `A mini book-store demonstration with a basic user account and an admin account. It also has multilingual functionality.\n User login \n username: demo. password: secret. \n Admin login \n username: radar. password: secret.`,
+        demoUrl: 'https://active-learning.samiyke.com',
+        repoUrl: 'https://github.com/sir-radar/book-store',
+        type: 'Web'
+      },
     ]
     function moveTo(navigation) {
       this.active = navigation;
