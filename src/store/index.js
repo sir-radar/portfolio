@@ -1,5 +1,5 @@
 import { reactive, readonly, provide, inject } from 'vue';
-let root = document.documentElement;
+const root = document.documentElement;
 const saveData = (data) => localStorage.setItem('sam-profile', JSON.stringify(data));
 const getData = () => JSON.parse(localStorage.getItem('sam-profile'));
 
@@ -27,7 +27,8 @@ export const createState = () => {
         "#4765A0",
         "#E53F50",
       ];
-  const tempState = getData() || { priColor: '#7369B9', theme:'dark', colors, innerShadow: 'inset 3px 3px 3px #202125, inset -3px -3px 3px #353535', bgColor: '#2c2d30' }
+  const initState = { priColor: '#7369B9', theme:'dark', colors, innerShadow: 'inset 3px 3px 3px #202125, inset -3px -3px 3px #353535', bgColor: '#2c2d30' };
+  const tempState = getData() || initState;
   const state = reactive(tempState);
   root.style.setProperty('--priColor', state.priColor);
   root.style.setProperty('--innerShadow', state.innerShadow);
