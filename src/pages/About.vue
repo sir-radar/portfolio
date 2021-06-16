@@ -254,7 +254,7 @@ export default {
         endDate: '',
         current: true,
         summary: [
-          'Building cool stuff',
+          'Currently building cool stuff with the Audi team',
         ]
       },
       {
@@ -340,6 +340,10 @@ export default {
         icon: 'javascript.svg'
       },
       {
+        name: 'Typescript',
+        icon: 'typescript.svg'
+      },
+      {
         name: 'Dart',
         icon: 'dart.svg'
       },
@@ -359,8 +363,16 @@ export default {
         icon: 'react.svg'
       },
       {
-        name: 'Angular',
-        icon: 'angular.svg'
+        name: 'Redux',
+        icon: 'redux.svg'
+      },
+      {
+        name: 'Svelte',
+        icon: 'svelte.svg'
+      },
+      {
+        name: 'Vuetify',
+        icon: 'vuetify.svg'
       },
       {
         name: 'Flutter',

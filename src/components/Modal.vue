@@ -46,8 +46,35 @@
                     {{project.description}}
                 </div>
 
-                <Divider class="mb-4" />
+                <div class="flex items-center justify-between mb-4">
+                    <h3
+                        class="text-lg font-medium leading-6 text-white text-gray-900"
+                        id="modal-headline"
+                        :class="{'text-dark': state.theme === 'light'}"
+                    >
+                    Technologies Used
+                    </h3>
+                </div>
 
+                <Divider class="mb-4" />
+                <div class="relative flex flex-wrap items-center justify-start gap-2 mb-3">
+                   <Capsule
+                    v-for="lang in project.stack"
+                    :key="lang.name"
+                    :lang="lang"
+                    />
+                </div>
+
+                <div class="flex items-center justify-between mb-4">
+                    <h3
+                        class="text-lg font-medium leading-6 text-white text-gray-900"
+                        id="modal-headline"
+                        :class="{'text-dark': state.theme === 'light'}"
+                    >
+                    Links
+                    </h3>
+                </div>
+                <Divider class="mb-4" />
                 <div class="flex justify-center">
                     <a
                         class="relative justify-center inline-block w-auto mr-5 cursor-pointer shadow-app rounded-2"
@@ -89,13 +116,15 @@
 <script>
 import { useState } from '../store';
 import Divider from '@/components/Divider';
+import Capsule from "@/components/Capsule";
 export default {
     name: "Modal",
     props:{
         project: Object
     },
     components:{
-        Divider
+        Divider,
+        Capsule
     },
     setup(props, {emit}){
         const { state } = useState();
