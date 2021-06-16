@@ -248,19 +248,19 @@ export default {
     const intro1 = 'Detail-oriented and highly competent software developer with 5+ years’ experience developing a wide range of web and mobile tools. Possess in-depth understanding of the software ';
     const intro2 = 'development lifecycle and very capable at all aspects of development from project planning to requirements gathering through to writing and testing code, documentation and support.';
     const experience = [
-      // {
-      //   title: 'Frontend Engineer - Modus Create',
-      //   startDate: 'MAR 2021',
-      //   endDate: '',
-      //   current: true,
-      //   summary: [
-      //     'Building cool stuff',
-      //   ]
-      // },
+       {
+        title: 'Frontend Engineer - Modus Create',
+        startDate: 'MAR 2021',
+        endDate: '',
+        current: true,
+        summary: [
+          'Building cool stuff',
+        ]
+      },
       {
         title: 'Software Engineer(contract) - SBSC: Remote',
         startDate: 'OCT 2020',
-        endDate: '',
+        endDate: 'MAR 2021',
         current: false,
         summary: [
           'Built UI components in React.js and other frontend technologies to digitize the process around the Nigerian stock exchange.',
