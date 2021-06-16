@@ -194,7 +194,7 @@ a .inner, .animate {
 
 .fade-enter-active,
 .fade-leave-active{
-  transition: all .2s ease;
+  transition: all .3s ease;
 }
 
 .fade-enter-to,
