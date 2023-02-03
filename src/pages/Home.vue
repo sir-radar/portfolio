@@ -1,49 +1,3 @@
-<template>
-  <div class="flex flex-col items-center justify-center text-white home">
-    <h1
-      class="mb-1 font-semibold text-center text-title mt-21"
-      :class="{ 'text-dark': state.theme === 'light' }"
-    >
-      Samson Nwokike
-    </h1>
-    <div class="relative mb-6 text-sm md:text-xl text-muted">
-      <h1 class="h-5">
-        <a
-          href=""
-          id="typewrite"
-          data-period="3000"
-          data-type='[ "Hi, there ✌.", "Samson here!", "I am a Frontend developer", "with Fullstack development experience.", "Humble, Curious, Empathetic and Productive", "A Chelsea Fan." ]'
-        >
-          <span class="uppercase wrap"></span>
-        </a>
-      </h1>
-    </div>
-    <ul class="flex justify-center mb-24 text-muted">
-      <li
-        v-for="icon in iconList"
-        :key="icon.name"
-        class="mr-2 cursor-pointer shadow-app rounded-2"
-        :class="{
-          'hover:shadow-app-light shadow-app-light': state.theme === 'light',
-        }"
-      >
-        <a
-          ref="icon"
-          class="flex items-center justify-center w-10 h-10 p-0 hover:shadow-app-inner rounded-2"
-          :class="{ 'hover:shadow-app-light-inner': state.theme === 'light' }"
-          target="_blank"
-          :href="icon.url"
-        >
-          <span id="icon" class="block" :class="icon.class">
-            <fa :icon="icon.name"></fa>
-          </span>
-        </a>
-      </li>
-    </ul>
-    <BottomLinks />
-  </div>
-</template>
-
 <script>
 import { onMounted, reactive } from 'vue';
 import { useState } from '../store';
@@ -119,3 +73,49 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="flex flex-col items-center justify-center text-white home">
+    <h1
+      class="mb-1 font-semibold text-center text-title mt-21"
+      :class="{ 'text-dark': state.theme === 'light' }"
+    >
+      Samson Nwokike
+    </h1>
+    <div class="relative mb-6 text-sm md:text-xl text-muted">
+      <h1 class="h-5">
+        <a
+          href=""
+          id="typewrite"
+          data-period="3000"
+          data-type='[ "Hi, there ✌.", "Samson here!", "I am a Frontend developer", "with Fullstack development experience.", "Humble, Curious, Empathetic and Productive", "A Chelsea Fan." ]'
+        >
+          <span class="uppercase wrap"></span>
+        </a>
+      </h1>
+    </div>
+    <ul class="flex justify-center mb-24 text-muted">
+      <li
+        v-for="icon in iconList"
+        :key="icon.name"
+        class="mr-2 cursor-pointer shadow-app rounded-2"
+        :class="{
+          'hover:shadow-app-light shadow-app-light': state.theme === 'light',
+        }"
+      >
+        <a
+          ref="icon"
+          class="flex items-center justify-center w-10 h-10 p-0 hover:shadow-app-inner rounded-2"
+          :class="{ 'hover:shadow-app-light-inner': state.theme === 'light' }"
+          target="_blank"
+          :href="icon.url"
+        >
+          <span id="icon" class="block" :class="icon.class">
+            <fa :icon="icon.name"></fa>
+          </span>
+        </a>
+      </li>
+    </ul>
+    <BottomLinks />
+  </div>
+</template>

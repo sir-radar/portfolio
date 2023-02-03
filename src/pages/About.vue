@@ -1,3 +1,51 @@
+<script>
+import { computed } from 'vue';
+import { useState } from '../store';
+import BigDivider from '@/components/BigDivider';
+import Case from '@/assets/images/svg/case.svg';
+import Education from '@/assets/images/svg/education.svg';
+import BottomLinks from '@/components/BottomLinks';
+import Capsule from '@/components/Capsule';
+import {
+  interest,
+  personalInfo,
+  contactInfo,
+  intro1,
+  intro2,
+  experience,
+  langauges,
+  technologies,
+} from '../constants';
+export default {
+  name: 'aboutPage',
+  components: {
+    BigDivider,
+    Case,
+    BottomLinks,
+    Education,
+    Capsule,
+  },
+  setup() {
+    const { state } = useState();
+
+    const lastPersonalInfo = computed(() => personalInfo.length - 1);
+    const lastcontactInfo = computed(() => contactInfo.length - 1);
+    return {
+      state,
+      personalInfo,
+      contactInfo,
+      lastPersonalInfo,
+      lastcontactInfo,
+      intro1,
+      intro2,
+      experience,
+      langauges,
+      technologies,
+      interest,
+    };
+  },
+};
+</script>
 <template>
   <div class="about">
     <section id="details" class="mb-12">
@@ -263,54 +311,6 @@
     </div>
   </div>
 </template>
-<script>
-import { computed } from 'vue';
-import { useState } from '../store';
-import BigDivider from '@/components/BigDivider';
-import Case from '@/assets/images/svg/case.svg';
-import Education from '@/assets/images/svg/education.svg';
-import BottomLinks from '@/components/BottomLinks';
-import Capsule from '@/components/Capsule';
-import {
-  interest,
-  personalInfo,
-  contactInfo,
-  intro1,
-  intro2,
-  experience,
-  langauges,
-  technologies,
-} from '../constants';
-export default {
-  name: 'aboutPage',
-  components: {
-    BigDivider,
-    Case,
-    BottomLinks,
-    Education,
-    Capsule,
-  },
-  setup() {
-    const { state } = useState();
-
-    const lastPersonalInfo = computed(() => personalInfo.length - 1);
-    const lastcontactInfo = computed(() => contactInfo.length - 1);
-    return {
-      state,
-      personalInfo,
-      contactInfo,
-      lastPersonalInfo,
-      lastcontactInfo,
-      intro1,
-      intro2,
-      experience,
-      langauges,
-      technologies,
-      interest,
-    };
-  },
-};
-</script>
 <style lang="scss" scoped>
 .time::before {
   box-shadow: var(--innerShadow);
