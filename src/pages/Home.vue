@@ -48,7 +48,7 @@
 import { onMounted, reactive } from 'vue';
 import { useState } from '../store';
 import BottomLinks from '@/components/BottomLinks';
-import { iconList } from '../constants/icons';
+import { iconList } from '../constants';
 export default {
   name: 'Home',
   components: {
